@@ -5,10 +5,15 @@
   "main": "index.js",
   "scripts": {
     "api": "gulp",
-    "start": "yarn add typescript -g && tsc && node dist/src/index.js"
+    "start": "tsc && node dist/src/index.js"
   },
   "license": "UNLICENCED",
-  "devDependencies": {
+  "dependencies": {
+    "@google/maps": "^0.4.5",
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "reflect-metadata": "^0.1.10",
     "@types/axios": "^0.14.0",
     "@types/body-parser": "^1.16.8",
     "@types/express": "^4.0.39",
@@ -16,12 +21,5 @@
     "gulp-batch": "^1.0.5",
     "gulp-watch": "^4.3.11",
     "typescript": "^2.6.2"
-  },
-  "dependencies": {
-    "@google/maps": "^0.4.5",
-    "axios": "^0.17.1",
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "reflect-metadata": "^0.1.10"
   }
 }

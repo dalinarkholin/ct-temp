@@ -2,6 +2,8 @@
 import axios from "axios";
 import * as google from "@google/maps";
 import ILocation from "src/interfaces/ILocation";
+import IKitchen from "src/interfaces/IKitchen";
+import IGoogleRowElement from "src/interfaces/IGoogleRowElement";
 
 const googleMapsClient = google.createClient({
   key: "AIzaSyCfnxD-FfpIghgJVWYRDiouMKpcdv8HKZw",
@@ -12,16 +14,18 @@ class LocationService {
 
   public static async getClosestLocationByAddress(address: string) {
     const kitchens = await this.getKitchens();
-    const kitchenLocations = kitchens.map((kitchen: any) => kitchen.location);
+    const kitchenLocations = kitchens.map((kitchen: IKitchen) => kitchen.location);
     const googleResult = await this.getDistanceMatrix(address, kitchenLocations);
     if (googleResult.kind === "error") {
       return googleResult;
     }
     const locationsWithOriginalIndex = googleResult.data.map(
-      (element: any, index: number) => ({...element, originalIndex: index})
+      (element: IGoogleRowElement, index: number) => ({...element, originalIndex: index})
     );
-    
-    const sortedByDurationValue = locationsWithOriginalIndex.sort((a: any, b: any) => a.duration.value - b.duration.value);
+
+    const sortedByDurationValue = locationsWithOriginalIndex.sort(
+      (a: IGoogleRowElement, b: IGoogleRowElement) => a.duration.value - b.duration.value
+    );
     const closestKitchen = sortedByDurationValue[0];
 
     const kitchen = {

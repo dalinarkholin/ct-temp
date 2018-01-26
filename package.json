@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "api": "gulp",
-    "start": "tsc && node dist/src/index.js"
+    "start": "yarn add typescript -g && tsc && node dist/src/index.js"
   },
   "license": "UNLICENCED",
   "devDependencies": {

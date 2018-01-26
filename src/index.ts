@@ -8,13 +8,6 @@ const port = process.env.PORT || 9229;
 
 app.use(bodyParser.json());
 
-app.use((req: any, res: any, next: any) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Origin, Content-Type, Accept");
-  next(); 
-});
-
 app.get('/', (req: any, res: any) => {
   res.json('CT TEMP API');
 });

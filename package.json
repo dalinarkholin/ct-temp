@@ -1,10 +1,11 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "description": "Autio Application Programming Interface",
+  "description": "CT Problem",
   "main": "index.js",
   "scripts": {
-    "api": "gulp"
+    "api": "gulp",
+    "start": "tsc && node dist/src/index.js"
   },
   "license": "UNLICENCED",
   "devDependencies": {

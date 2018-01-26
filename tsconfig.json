@@ -26,9 +26,7 @@
     "baseUrl": ".",
     "outDir": "dist",
     "rootDir": ".",
-    "paths": {
-      "~/*": ["*"]
-    }
+    "typeRoots": ["./node_modules/@types/"]
   },
   "exclude": [
     "node_modules",

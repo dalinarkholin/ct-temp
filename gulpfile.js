@@ -28,7 +28,7 @@ gulp.task("server", function () {
  * description: start the development environment
  */
 gulp.task("default", ["server"], function () {
-  watch('../dist/**/*.js', batch(function (events, done) {
+  watch('./dist/**/*.js', batch(function (events, done) {
     gulp.start('server', done);
   }));
 });

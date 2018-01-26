@@ -2,10 +2,12 @@ import * as express from "express";
 
 const controllers = express.Router();
 
-// Testing Route
-controllers.get("/hello", (req: any, res: any) => {
-  res.json("Hello World")
-})
+import LocationService from "../services/LocationService";
+
+controllers.post("/locations/get-closest", async (req: express.Request, res: express.Response) => {
+  const result = await LocationService.getClosestLocationByAddress(req.body.address);
+  res.json(result);
+});
 
 
 export default controllers;
